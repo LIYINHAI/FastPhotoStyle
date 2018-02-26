@@ -21,20 +21,4 @@ parser.add_argument('--decoder2', default='./models/feature_invertor_conv2_1_mas
 parser.add_argument('--decoder1', default='./models/feature_invertor_conv1_1_mask.t7', help='Path to the decoder1')
 parser.add_argument('--content_image_path', default='./images/content1.png')
 parser.add_argument('--content_seg_path', default=[])
-parser.add_argument('--style_image_path', default='./images/style1.png')
-parser.add_argument('--style_seg_path', default=[])
-parser.add_argument('--output_image_path', default='./results/example1.png')
-args = parser.parse_args()
-
-# Load model
-p_wct = PhotoWCT(args)
-p_wct.cuda(0)
-
-process_stylization.stylization(
-    p_wct=p_wct,
-    content_image_path=args.content_image_path,
-    style_image_path=args.style_image_path,
-    content_seg_path=args.content_seg_path,
-    style_seg_path=args.style_seg_path,
-    output_image_path=args.output_image_path,
 )
